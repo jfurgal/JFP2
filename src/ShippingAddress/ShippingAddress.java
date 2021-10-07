@@ -18,5 +18,6 @@ public class ShippingAddress {
     @Override
     public String toString(){
         return "ShippingAddress [AddressLine1=" + AddressLine1 +",AddressLine2=" +AddressLine2 +",City=" + City +",State=" +State+", PostalCode=" + PostalCode+"]";
+   //returns all aspects of address as one full address
     }
 }

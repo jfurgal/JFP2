@@ -66,6 +66,7 @@ public class Store {
 
         switch (ch){
             case 1:
+                //case 1 adds a new address to the program
                 String addressLine1 = "", addressLine2="", city="", state="", postalCode="";
                 System.out.println("Enter addressLine1");
                 if(sc.hasNext()){
@@ -86,6 +87,7 @@ public class Store {
                 break;
 
             case 2:
+                //below gets address for specific customer and makes an order
                 ArrayList<ShippingAddress>Addrs = selectCustomer.getAddresses();
                 int i = 0;
                 for(ShippingAddress addr : addrs){
