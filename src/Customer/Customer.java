@@ -1,8 +1,10 @@
 package Customer;
-import.java.util.ArrayList;
+import
+
+import java.lang.reflect.Array;.java.util.ArrayList;
 
 
-public class Customer {
+public abstract class Customer {
     private static int count = 0;
     private ArrayList<ShippingAddress>Addresses;
     private String Name;
@@ -24,4 +26,14 @@ public class Customer {
         return "Customers [Addresses=" + Addresses +",Name=" + Name +"customerID=" + customerID +"]";
 
     }
+    public abstract double PayForOrder(ArrayList<ItemForSale> itemsInOrder);
+    public double payOutstandingBalance(){
+        return 0.0;
+    }
+    public void arrangeDelivery(){
+        System.out.println(Name + " deliver any time");
+
+    }
+
+
 }
