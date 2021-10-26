@@ -1,0 +1,3 @@
+shirt, 5.00,Clothing
+oreos, 3.00,WICFood
+Coffee cup, 4.00,GeneralMerchandise

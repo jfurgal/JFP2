@@ -1,12 +1,13 @@
 package Customer;
-import
+package ShippingAddress;
 
-import java.lang.reflect.Array;.java.util.ArrayList;
-
+import java.util.ArrayList;
+import comp.comp152.MerchandiseItem;
+import ShippingAddress.ShippingAddress;
 
 public abstract class Customer {
     private static int count = 0;
-    private ArrayList<ShippingAddress>Addresses;
+    private ArrayList<ShippingAddress> Addresses;
     private String Name;
     private int customerID;
 //ties customer ID, address and customer name together
@@ -21,12 +22,13 @@ public abstract class Customer {
     public void addAddress(ShippingAddress newAddress){
         Addresses.add(newAddress);
     }
+
     @Override
     public String toString(){
         return "Customers [Addresses=" + Addresses +",Name=" + Name +"customerID=" + customerID +"]";
 
     }
-    public abstract double PayForOrder(ArrayList<ItemForSale> itemsInOrder);
+    public abstract double PayForOrder(ArrayList<MerchandiseItem> itemsInOrder);
     public double payOutstandingBalance(){
         return 0.0;
     }
@@ -35,5 +37,5 @@ public abstract class Customer {
 
     }
 
-
+    public abstract double PayForOrder();
 }

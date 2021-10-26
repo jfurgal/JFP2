@@ -14,16 +14,40 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+
 
 public class Store {
     private ArrayList<Order> Orders;
     private ArrayList<Customer> Customers;
     private Scanner sc;
+    List<MerchandiseItem> Stock;
+    double revenue = 0;
     public Store(){
         sc = new Scanner(System.in);
         Customers = new ArrayList<Customer>();
         Orders = new ArrayList<Order>();
         List<String> lines = Collections.emptyList();
+        try{
+            File myObj = new File("Item.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()){
+                String data = myReader.nextLine();
+                System.out.println(data);
+                lines.add(data);
+                String[] names = data.split(",");
+                String itemName = names[0];
+                double price = Double.parseDouble(names[1]);
+                ItemType type = ItemType.valueOf(names[2]);
+                MerchandiseItem mi = new MerchandiseItem(itemName, price, type);
+                Stock.add(mi);
+            }
+            myReader.close();
+        }catch (FileNotFoundException e){
+            System.out.println("An error occured.");
+            e.printStackTrace();
+        }
 
         String[] names = lines.get(0).split("");
 
@@ -40,6 +64,7 @@ public class Store {
             System.out.println(" [1] Add Customer");
             System.out.println(" [2] Select Customer");
             System.out.print("Enter your choice : ");
+            System.out.print(" [3] collect all outstanding balances");
             System.out.println("###############################################");
             int ch = sc.nextInt();
 
@@ -50,11 +75,22 @@ public class Store {
                 case 2: manageCustomer(selectCustomer());
                 break;
 
+                case 3: collectBalances();
+                break;
+
                 default:
                     System.exit(0);
 
             }
         }
+    }
+
+    private void collectBalances() {
+        for(int i = 0;i<Customers.size();i++){
+            Customer c = Customers.get(i);
+            makeOrder(c.,c,)
+        }
+
     }
 
     public void manageCustomer(Customer selectCustomer) {
@@ -90,12 +126,12 @@ public class Store {
                 //below gets address for specific customer and makes an order
                 ArrayList<ShippingAddress>Addrs = selectCustomer.getAddresses();
                 int i = 0;
-                for(ShippingAddress addr : addrs){
+                for(ShippingAddress addr : Addrs){
                     System.out.println(i++ +""+addr);
                 }
                 System.out.print("Enter your choice :");
                 int c = sc.nextInt();
-                makeOrder(addrs.get(c), selectCustomer);
+                revenue += makeOrder(Addrs.get(c), selectCustomer);
                 break;
             default:
                 System.exit(0);
@@ -121,10 +157,14 @@ public class Store {
         Customers.add(cust);
     }
 
-    public void makeOrder(ShippingAddress address, Customer cust){
-        Orders.add(new Order(address,cust));
+    public double makeOrder(ShippingAddress address, Customer cust, ArrayList<MerchandiseItem> item){
+        Orders.add(new Order(address, cust, item));
+        double d = cust.PayForOrder();
+        cust.arrangeDelivery();
+        return d;
+        }
 
-    }
+
 
     public static void main(String[] args) {
         Store store = new Store();
