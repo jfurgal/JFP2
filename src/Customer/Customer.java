@@ -1,5 +1,5 @@
 package Customer;
-package ShippingAddress;
+
 
 import java.util.ArrayList;
 import comp.comp152.MerchandiseItem;

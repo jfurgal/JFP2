@@ -88,7 +88,7 @@ public class Store {
     private void collectBalances() {
         for(int i = 0;i<Customers.size();i++){
             Customer c = Customers.get(i);
-            makeOrder(c.,c,)
+
         }
 
     }
