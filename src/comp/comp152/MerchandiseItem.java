@@ -17,7 +17,7 @@ public class MerchandiseItem {
     }
     public double getPrice(){
         return price;
-
+//introduces taxes on the three items (clothing, general merchandise, and food
     }
     public double getTax(){
         if (taxibleType== ItemType.Clothing){

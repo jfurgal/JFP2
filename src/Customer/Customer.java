@@ -34,7 +34,7 @@ public abstract class Customer {
     }
     public void arrangeDelivery(){
         System.out.println(Name + " deliver any time");
-
+//prints customer name and deliver any time
     }
 
     public abstract double PayForOrder();

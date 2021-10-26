@@ -14,6 +14,6 @@ public class TaxExemptCustomer extends Customer{
     }
     public void arrangeDelivery(){
         System.out.println("Name: " + getName() + ". All deliveries must be from 9-5 Mon-Fri");
-
+//shows the tax exempt customers order minus taxes because they are exempt
     }
 }

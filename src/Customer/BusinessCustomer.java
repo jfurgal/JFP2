@@ -19,13 +19,13 @@ public class BusinessCustomer extends Customer{
         purchaseOrderBalance = sum + tax;
         return 0;
 
-
+//class was made to add a business customer including taxes in their order
     }
     public double payOutstandingBalance(){
         double discount = 0;
         if (purchaseOrderBalance > 1000){
             discount = purchaseOrderBalance * .05;
-
+//includes 5% discount on their order total and returns total after discount
         }
         double total = purchaseOrderBalance - discount;
         purchaseOrderBalance = 0;

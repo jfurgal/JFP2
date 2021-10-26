@@ -15,5 +15,5 @@ public class ResidentialCustomer extends Customer {
         }
         return sum + tax;
     }
-
+//shows the residential customers order including total fees plus taxes
 }

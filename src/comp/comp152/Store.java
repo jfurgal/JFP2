@@ -84,7 +84,7 @@ public class Store {
             }
         }
     }
-
+//collects all outstanding balances from customers
     private void collectBalances() {
         for(int i = 0;i<Customers.size();i++){
             Customer c = Customers.get(i);
@@ -156,7 +156,7 @@ public class Store {
         Customer cust = new Customer(name);
         Customers.add(cust);
     }
-
+//allows customer to select several items for purchase
     public double makeOrder(ShippingAddress address, Customer cust, ArrayList<MerchandiseItem> item){
         Orders.add(new Order(address, cust, item));
         double d = cust.PayForOrder();

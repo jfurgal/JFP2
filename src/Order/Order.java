@@ -19,7 +19,7 @@ public class Order {
         this.orderedBy = orderedBy;
         this.cartForOrder = cartForOrder;
     }
-
+//added cart for order to be an array list of merchandiseItem
 
     public String getDestination(){
         return destination.toString();
